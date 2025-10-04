@@ -1,11 +1,14 @@
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import StreamingResponse
 from pymongo import MongoClient
-import pandas as pd, io, config
+import pandas as pd, io, scripts.config as config
 app = FastAPI()
 client = MongoClient(config.MONGO_URI)
 db=client[config.DB_NAME]
 collection=db[config.COLLECTION_NAME]
+@app.get("/")
+def front():
+    return {"message": "Welcome to the Arts Organizations API"}
 @app.get("/organizations")
 def get_all(name: str = None, province: str = None):
     query = {}
