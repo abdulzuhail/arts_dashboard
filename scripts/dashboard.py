@@ -1,51 +1,60 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 from pymongo import MongoClient
-import sys
-import os
-
-# Ensure scripts.config is importable
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import scripts.config as config
-
+import config
 client = MongoClient(config.MONGO_URI)
 db = client[config.DB_NAME]
 collection = db[config.COLLECTION_NAME]
-
-st.title("Arts Organizations in Canada")
+st.set_page_config(page_title="Arts Organizations in Canada", layout="wide")
+st.title("Arts Organizations in Canada Dashboard")
 st.sidebar.header("Filters")
-name_filter = st.sidebar.text_input("Search by Organization Name")
-location_filter = st.sidebar.text_input("Search by Location")
-type_filter = st.sidebar.text_input("Search by Type")
-
-query = {}
-if name_filter:
-    query["name"] = {"$regex": name_filter, "$options": "i"}
-if location_filter:
-    query["location"] = {"$regex": location_filter, "$options": "i"}
-if type_filter:
-    query["type"] = {"$regex": type_filter, "$options": "i"}
-
-orgs = list(collection.find(query, {"_id": 0}))
-df = pd.DataFrame(orgs)
-
-if not df.empty:
-    st.success(f"Found {len(df)} organizations")
-    st.dataframe(df)
-    st.subheader("Data Visualizations")
-    if "location" in df.columns and not df["location"].isnull().all():
-        st.write("### Distribution of Organizations by Province")
-        province_counts = df["location"].value_counts()
-        st.bar_chart(province_counts)
-    if "type" in df.columns and not df["type"].isnull().all():
-        st.write("### Types of Art Forms Represented")
-        type_counts = df["type"].value_counts()
-        st.bar_chart(type_counts)
-    if "founded_year" in df.columns and not df["founded_year"].isnull().all():
-        st.write("### Yearly Growth of Organizations")
-        yearly_counts = df["founded_year"].value_counts().sort_index()
-        st.line_chart(yearly_counts)
-    csv = df.to_csv(index=False).encode("utf-8")
-    st.download_button(label="Download CSV", data=csv, file_name="organizations.csv", mime="text/csv")
+filters = {
+    "name": st.sidebar.text_input("Search by Organization Name"),
+    "location": st.sidebar.text_input("Search by Location"), 
+    "type": st.sidebar.text_input("Search by Art Type")
+}
+query = {key: {"$regex": value, "$options": "i"} for key, value in filters.items() if value}
+df = pd.DataFrame(list(collection.find(query, {"_id": 0})))
+if df.empty:
+    st.warning("No organizations found.")
 else:
-    st.warning("No organizations found with the given filters.")
+    st.success(f"Found {len(df)} organizations.")
+    st.dataframe(df, use_container_width=True)
+    st.download_button(
+        label="Download CSV",
+        data=df.to_csv(index=False).encode("utf-8"),
+        file_name="organizations.csv",
+        mime="text/csv",
+    )
+    st.header("Data Visualizations")
+    def create_chart(column, title, chart_type="bar"):
+        if column in df.columns and not df[column].isna().all():
+            st.subheader(title)
+            counts = df[column].value_counts()
+            if chart_type == "line":
+                counts = counts.sort_index()
+                st.line_chart(counts)
+            else:
+                st.bar_chart(counts)
+    create_chart("location", "Distribution of Organizations by Location")
+    create_chart("type", "Types of Art Forms Represented")
+    if "founded_year" in df.columns and not df["founded_year"].isna().all():
+        df["founded_year"] = pd.to_numeric(df["founded_year"], errors="coerce")
+        create_chart("founded_year", "Yearly Growth of Organizations", "line")
+    st.header("JSON-LD Structured Data Adoption")  
+    if "has_jsonld" in df.columns:
+        total_with_jsonld = df["has_jsonld"].sum()
+        percent = (total_with_jsonld / len(df) * 100) if len(df) > 0 else 0
+        st.metric("Organizations using JSON-LD", f"{percent:.1f}%")
+        fig = px.pie(df, names="has_jsonld", title="JSON-LD Adoption",
+                    color_discrete_map={True: "yellow", False: "red"})
+        st.plotly_chart(fig, use_container_width=True)
+        if "location" in df.columns:
+            jsonld_by_loc = df.groupby("location")["has_jsonld"].mean() * 100
+            fig2 = px.bar(jsonld_by_loc.reset_index(), x="location", y="has_jsonld",
+                         title="JSON-LD Adoption by Location (%)",
+                         labels={"has_jsonld": "Adoption (%)"})
+            st.plotly_chart(fig2, use_container_width=True)
+    else:
+        st.warning("Run the website analysis script to enable JSON-LD insights.")

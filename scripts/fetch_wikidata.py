@@ -48,6 +48,4 @@ collection = db[config.COLLECTION_NAME]
 for doc in data:
     collection.update_one( {"wikidata_id": doc["wikidata_id"]}, {"$set": doc}, upsert=True )
 print(f"Inserted {len(data)} records into MongoDB")
-result = collection.update_many({}, {"$unset": {"created_at": "", "fetched_at": ""}})
-print(f"Removed 'created_at' and 'fetched_at' from {result.modified_count} documents.")
 client.close()
