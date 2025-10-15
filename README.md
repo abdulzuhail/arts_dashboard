@@ -80,20 +80,16 @@ streamlit run scripts/dashboard.py
 
 ## 📊 SAMPLE VISUALS
 ### 📍 Organizations by Province
-
-Displays the geographic distribution of arts organizations across Canada.
+- Displays the geographic distribution of arts organizations across Canada.
 
 ### 🎭 Types of Art Forms
-
-Visualizes representation of visual, performing, and cultural art forms.
+- Visualizes representation of visual, performing, and cultural art forms.
 
 ### 📈 Yearly Growth Trends
-
-Shows the growth patterns of arts organizations over time.
+- Shows the growth patterns of arts organizations over time.
 
 ### 🌐 JSON-LD Adoption
-
-Highlights the percentage of organizations using structured data.
+ - Highlights the percentage of organizations using structured data.
 
 ## 🧩 FUTURE ENHANCEMENTS
 
