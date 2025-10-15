@@ -58,9 +58,9 @@ https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4
 git clone https://github.com/abdulzuhail/arts_dashboard.git
 
 cd arts_dashboard
-### 2️⃣ **INSTALL DEPENDENCIES**
+### 2️⃣ **Install Dependencies**
 pip install -r requirements.txt
-### 3️⃣ **CONFIGURE MONGODB**
+### 3️⃣ **Configure MONGODB**
 Edit your MongoDB credentials in scripts/config.py:
 
 MONGO_URI = "mongodb://localhost:27017/"
@@ -69,13 +69,13 @@ DB_NAME = "arts_db"
 
 COLLECTION_NAME = "organizations"
 
-### **4️⃣ FETCH DATA FROM WIKIDATA**
+### **4️⃣ Fetch Data From Wikidata**
 python scripts/fetch_wikidata.py
 
-### **5️⃣ ANALYZE WEBSITES FOR JSON-LD**
+### **5️⃣ Analyze Websites for JSON-LD**
 python scripts/website.py
 
-### **6️⃣ RUN THE STREAMLIT DASHBOARD**
+### **6️⃣ Run the streamlit dashboard**
 streamlit run scripts/dashboard.py
 
 ## 📊 SAMPLE VISUALS
