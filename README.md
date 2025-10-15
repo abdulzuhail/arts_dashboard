@@ -54,10 +54,57 @@ https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4
 
 ## ⚙️ **INSTALLATION & SETUP**
 
-### 1️⃣ Clone the Repository
+### 1️⃣ **Clone the Repository**
 git clone https://github.com/abdulzuhail/arts_dashboard.git
 cd arts_dashboard
 ### 2️⃣ **INSTALL DEPENDENCIES**
 pip install -r requirements.txt
-git clone https://github.com/abdulzuhail/arts_dashboard.git
-cd arts_dashboard
+### 3️⃣ **CONFIGURE MONGODB**
+Edit your MongoDB credentials in scripts/config.py:
+
+MONGO_URI = "mongodb://localhost:27017/"
+DB_NAME = "arts_db"
+COLLECTION_NAME = "organizations"
+
+### **4️⃣ FETCH DATA FROM WIKIDATA**
+python scripts/fetch_wikidata.py
+
+### **5️⃣ ANALYZE WEBSITES FOR JSON-LD**
+python scripts/website.py
+
+### **6️⃣ RUN THE STREAMLIT DASHBOARD**
+streamlit run scripts/dashboard.py
+
+📊 SAMPLE VISUALS
+📍 Organizations by Province
+
+Displays the geographic distribution of arts organizations across Canada.
+
+🎭 Types of Art Forms
+
+Visualizes representation of visual, performing, and cultural art forms.
+
+📈 Yearly Growth Trends
+
+Shows the growth patterns of arts organizations over time.
+
+🌐 JSON-LD Adoption
+
+Highlights the percentage of organizations using structured data.
+
+🧩 FUTURE ENHANCEMENTS
+
+🔁 Automate scheduled updates for Wikidata fetching.
+
+📊 Add province-level drill-down analysis.
+
+🌍 Expand data sources for better cultural insights.
+
+👨‍💻 DEVELOPER
+
+Abdul Zuhail M
+📍 Devala, Tamil Nadu
+💼 GitHub Profile
+
+⭐ If you found this project useful, please consider giving it a star on GitHub!
+
