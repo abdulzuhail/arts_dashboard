@@ -69,10 +69,10 @@ DB_NAME = "arts_db"
 
 COLLECTION_NAME = "organizations"
 
-### **4️⃣ Fetch Data From Wikidata**
+### **4️⃣ Fetch data from wikidata**
 python scripts/fetch_wikidata.py
 
-### **5️⃣ Analyze Websites for JSON-LD**
+### **5️⃣ Analyze websites for JSON-LD**
 python scripts/website.py
 
 ### **6️⃣ Run the streamlit dashboard**
