@@ -78,6 +78,7 @@ python scripts/website.py
 ### **6️⃣ Run the streamlit dashboard**
 streamlit run scripts/dashboard.py
 
+---
 ## 📊 SAMPLE VISUALS
 ### 📍 Organizations by Province
 - Displays the geographic distribution of arts organizations across Canada.
@@ -90,6 +91,7 @@ streamlit run scripts/dashboard.py
 
 ### 🌐 JSON-LD Adoption
  - Highlights the percentage of organizations using structured data.
+---
 
 ## 🧩 FUTURE ENHANCEMENTS
 
@@ -98,6 +100,7 @@ streamlit run scripts/dashboard.py
 - 📊 Add province-level drill-down analysis.
 
 - 🌍 Expand data sources for better cultural insights.
+---
 
 ## 👨‍💻 DEVELOPER
 
