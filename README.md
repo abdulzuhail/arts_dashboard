@@ -1,91 +1,111 @@
-project:
-  title: "🎨 Arts Organizations in Canada Dashboard"
-  description: >
-    An interactive data visualization dashboard built using Streamlit, MongoDB, and Plotly 
-    to analyze and display information about arts organizations across Canada. 
-    The project fetches real-time data from Wikidata, stores it in MongoDB, and provides 
-    insights into distribution, art forms, and structured data (JSON-LD) adoption.
+PROJECT_TITLE: "🎨 ARTS ORGANIZATIONS IN CANADA DASHBOARD"
 
-demo:
-  title: "🎥 Project Demo"
-  link: "https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4"
-  preview_url: "https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4"
+DESCRIPTION: >
+  **An interactive data visualization dashboard** built using **Streamlit**, **MongoDB**, 
+  and **Plotly** to analyze and display information about **arts organizations across Canada**.  
+  This project fetches real-time data from **Wikidata**, stores it in **MongoDB**, 
+  and provides insights into **distribution, art forms, and JSON-LD structured data adoption**.
 
-features:
-  - title: "✅ Data Fetching from Wikidata"
-    details:
-      - "Retrieves arts organization data (name, type, province, website, founded year)."
+---
+
+PROJECT_DEMO:
+  TITLE: "🎥 PROJECT DEMO"
+  LINK: "https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4"
+  PREVIEW: "https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4"
+  NOTE: >
+    🎬 **Watch the dashboard in action** to explore how data visualization and insights 
+    are presented interactively using Streamlit.
+
+---
+
+FEATURES:
+  - TITLE: "✅ DATA FETCHING FROM WIKIDATA"
+    DETAILS:
+      - "Retrieves arts organization data — name, type, province, website, and founded year."
       - "Automatically stores or updates data in MongoDB."
 
-  - title: "✅ Streamlit Dashboard Interface"
-    details:
-      - "Search and filter organizations by name, location, and type."
-      - "Download filtered results as CSV."
-      - "Interactive charts built with Plotly."
+  - TITLE: "✅ STREAMLIT DASHBOARD INTERFACE"
+    DETAILS:
+      - "Search and filter organizations by name, location, or type."
+      - "Download filtered data as CSV directly from the dashboard."
+      - "Interactive visualizations built using Plotly."
 
-  - title: "✅ Visual Analytics"
-    details:
-      - "Bar Charts: Distribution of organizations by province."
-      - "Line Charts: Yearly growth of new organizations."
-      - "Pie Charts: JSON-LD adoption (Yes vs No)."
+  - TITLE: "✅ VISUAL ANALYTICS"
+    DETAILS:
+      - "📊 **Bar Charts:** Distribution of organizations by province."
+      - "📈 **Line Charts:** Yearly growth trend of new organizations."
+      - "🥧 **Pie Charts:** JSON-LD adoption (Yes vs No)."
 
-  - title: "✅ JSON-LD Website Analysis"
-    details:
+  - TITLE: "✅ JSON-LD WEBSITE ANALYSIS"
+    DETAILS:
       - "Scans organization websites for JSON-LD structured data."
-      - "Displays adoption percentage and breakdown by province."
+      - "Displays adoption percentage and province-wise breakdown."
 
-  - title: "✅ Insights Summary"
-    details:
-      - "Highlights total organizations, art form diversity, and digital readiness across provinces."
+  - TITLE: "✅ INSIGHTS SUMMARY"
+    DETAILS:
+      - "Shows total organizations, diversity of art types, and overall digital readiness."
 
-tech_stack:
-  frontend: ["Streamlit", "Plotly"]
-  backend: ["Python"]
-  database: ["MongoDB"]
-  data_source: ["Wikidata SPARQL Endpoint"]
-  libraries: ["Pandas", "BeautifulSoup", "Requests"]
+---
 
-installation:
-  steps:
-    - step: "1️⃣ Clone the repository"
-      commands:
-        - "git clone https://github.com/abdulzuhail/arts_dashboard.git"
-        - "cd arts_dashboard"
+TECH_STACK:
+  FRONTEND: ["Streamlit", "Plotly"]
+  BACKEND: ["Python"]
+  DATABASE: ["MongoDB"]
+  DATA_SOURCE: ["Wikidata SPARQL Endpoint"]
+  LIBRARIES: ["Pandas", "BeautifulSoup", "Requests"]
 
-    - step: "2️⃣ Install dependencies"
-      commands:
-        - "pip install -r requirements.txt"
+---
 
-    - step: "3️⃣ Configure MongoDB"
-      file: "scripts/config.py"
-      content:
-        MONGO_URI: "mongodb://localhost:27017/"
-        DB_NAME: "arts_db"
-        COLLECTION_NAME: "organizations"
+INSTALLATION_AND_SETUP:
+  STEP_1: 
+    TITLE: "1️⃣ CLONE THE REPOSITORY"
+    COMMANDS:
+      - "git clone https://github.com/abdulzuhail/arts_dashboard.git"
+      - "cd arts_dashboard"
 
-    - step: "4️⃣ Fetch data from Wikidata"
-      command: "python scripts/fetch_wikidata.py"
+  STEP_2: 
+    TITLE: "2️⃣ INSTALL DEPENDENCIES"
+    COMMANDS:
+      - "pip install -r requirements.txt"
 
-    - step: "5️⃣ Analyze websites for JSON-LD"
-      command: "python scripts/website.py"
+  STEP_3:
+    TITLE: "3️⃣ CONFIGURE MONGODB"
+    FILE: "scripts/config.py"
+    CONTENT:
+      MONGO_URI: "mongodb://localhost:27017/"
+      DB_NAME: "arts_db"
+      COLLECTION_NAME: "organizations"
 
-    - step: "6️⃣ Run Streamlit Dashboard"
-      command: "streamlit run scripts/dashboard.py"
+  STEP_4:
+    TITLE: "4️⃣ FETCH DATA FROM WIKIDATA"
+    COMMAND: "python scripts/fetch_wikidata.py"
 
-visuals:
-  - name: "📍 Organizations by Province"
-    description: "Displays geographic distribution of arts organizations."
+  STEP_5:
+    TITLE: "5️⃣ ANALYZE WEBSITES FOR JSON-LD"
+    COMMAND: "python scripts/website.py"
 
-  - name: "🎭 Types of Art Forms"
-    description: "Visualizes representation of visual, performing, and cultural art forms."
+  STEP_6:
+    TITLE: "6️⃣ RUN STREAMLIT DASHBOARD"
+    COMMAND: "streamlit run scripts/dashboard.py"
 
-  - name: "📈 Yearly Growth Trends"
-    description: "Shows growth patterns of arts organizations over time."
+---
 
-  - name: "🌐 JSON-LD Adoption"
-    description: "Highlights percentage of organizations using structured data."
+📊 SAMPLE_VISUALS:
+  - NAME: "📍 ORGANIZATIONS BY PROVINCE"
+    DESCRIPTION: "Displays the geographic distribution of arts organizations across Canada."
 
-future_enhancements:
-  - "Integrate automatic scheduled updates for Wikidata fetch."
-  - "Add province-level drill-down analysis."
-  - "Expand data sources for better cultural insights."
+  - NAME: "🎭 TYPES OF ART FORMS"
+    DESCRIPTION: "Visualizes representation of visual, performing, and cultural arts."
+
+  - NAME: "📈 YEARLY GROWTH TRENDS"
+    DESCRIPTION: "Shows how arts organizations have grown over time."
+
+  - NAME: "🌐 JSON-LD ADOPTION"
+    DESCRIPTION: "Highlights the percentage of organizations using structured data."
+
+---
+
+🧩 FUTURE_ENHANCEMENTS:
+  - "🔁 Integrate automatic scheduled updates for Wikidata data fetching."
+  - "📊 Add province-level drill-down and interactive filtering."
+  - "🌍 Expand data sources for deeper cultural and organizational insights."
