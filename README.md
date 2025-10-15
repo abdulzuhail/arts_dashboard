@@ -97,17 +97,15 @@ Highlights the percentage of organizations using structured data.
 
 ## 🧩 FUTURE ENHANCEMENTS
 
-🔁 Automate scheduled updates for Wikidata fetching.
+- 🔁 Automate scheduled updates for Wikidata fetching.
 
-📊 Add province-level drill-down analysis.
+- 📊 Add province-level drill-down analysis.
 
-🌍 Expand data sources for better cultural insights.
+- 🌍 Expand data sources for better cultural insights.
 
-👨‍💻 DEVELOPER
+## 👨‍💻 DEVELOPER
 
 Abdul Zuhail M
-📍 Devala, Tamil Nadu
-💼 GitHub Profile
 
-⭐ If you found this project useful, please consider giving it a star on GitHub!
+📍 Devala, Tamil Nadu
 
