@@ -64,7 +64,9 @@ pip install -r requirements.txt
 Edit your MongoDB credentials in scripts/config.py:
 
 MONGO_URI = "mongodb://localhost:27017/"
+
 DB_NAME = "arts_db"
+
 COLLECTION_NAME = "organizations"
 
 ### **4️⃣ FETCH DATA FROM WIKIDATA**
@@ -76,24 +78,24 @@ python scripts/website.py
 ### **6️⃣ RUN THE STREAMLIT DASHBOARD**
 streamlit run scripts/dashboard.py
 
-📊 SAMPLE VISUALS
-📍 Organizations by Province
+## 📊 SAMPLE VISUALS
+### 📍 Organizations by Province
 
 Displays the geographic distribution of arts organizations across Canada.
 
-🎭 Types of Art Forms
+### 🎭 Types of Art Forms
 
 Visualizes representation of visual, performing, and cultural art forms.
 
-📈 Yearly Growth Trends
+### 📈 Yearly Growth Trends
 
 Shows the growth patterns of arts organizations over time.
 
-🌐 JSON-LD Adoption
+### 🌐 JSON-LD Adoption
 
 Highlights the percentage of organizations using structured data.
 
-🧩 FUTURE ENHANCEMENTS
+## 🧩 FUTURE ENHANCEMENTS
 
 🔁 Automate scheduled updates for Wikidata fetching.
 
