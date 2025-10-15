@@ -56,6 +56,7 @@ https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4
 
 ### 1️⃣ **Clone the Repository**
 git clone https://github.com/abdulzuhail/arts_dashboard.git
+
 cd arts_dashboard
 ### 2️⃣ **INSTALL DEPENDENCIES**
 pip install -r requirements.txt
