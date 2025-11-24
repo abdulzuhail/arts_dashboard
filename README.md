@@ -10,9 +10,6 @@ This project fetches **real-time data from Wikidata**, stores it in **MongoDB**,
 🎬 **Watch the Dashboard in Action:**  
 👉 [Click to view on GitHub](https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4)
 
-🎞️ **Preview Below:**  
-https://github.com/abdulzuhail/arts_dashboard/blob/main/streamlit-dashboard.mp4
-
 ---
 
 ## 🚀 **KEY FEATURES**
